@@ -1,4 +1,4 @@
-site_name: dj-raw-sql
+site_name: mkdocs-playground
 theme:
   name: material
   features:
@@ -13,7 +13,6 @@ theme:
       toggle:
         icon: material/brightness-auto
         name: Switch to dark 77  mode
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -22,7 +21,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -31,7 +29,6 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to system mode
-
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -40,13 +37,12 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.highlight
   - pymdownx.inlinehilite
-
 plugins:
   - search
 extra:
   social:
     - icon: material/github
-      link: https://github.com/axemanofic/dj-raw-sql
+      link: https://github.com/axemanofic/mkdocs-playground
       name: Github
     - icon: simple/pypi
       link: https://pypi.org/project/dj-raw-sql/
