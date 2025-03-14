@@ -1,14 +1,9 @@
 name: Build and deploy package
-on:
-  push:
-    branches:
-      - master
-permissions:
-  contents: write
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 jobs:
   deploy_docs:
     runs-on: ubuntu-latest
-    needs: testing
     steps:
       - name: Checkout master
         uses: actions/checkout@v3
