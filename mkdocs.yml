@@ -1,6 +1,8 @@
 site_name: mkdocs-playground
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
   features:
     - navigation.tracking
     - navigation.top
@@ -8,24 +10,18 @@ theme:
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
-      primary: teal
-      accent: green
       toggle:
         icon: material/brightness-auto
         name: Switch to dark 77  mode
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: teal
-      accent: green
+      scheme: catppuccin-latte
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: teal
-      accent: green
+      scheme: catppuccin-mocha
       toggle:
         icon: material/weather-night
         name: Switch to system mode
@@ -33,12 +29,13 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
   - pymdownx.highlight
   - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
 plugins:
   - search
+  - tags
 extra:
   social:
     - icon: material/github
@@ -48,3 +45,5 @@ extra:
       link: https://pypi.org/project/dj-raw-sql/
       name: PyPi
 copyright: Copyright &copy; 2023 Roman Sotnikov
+extra_css:
+  - stylesheets/extra.css
