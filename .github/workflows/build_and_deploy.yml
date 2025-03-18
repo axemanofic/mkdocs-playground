@@ -1,22 +1,32 @@
-name: Build and deploy package
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Build and deploy docs
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: write
 jobs:
-  deploy_docs:
+  deploy:
     runs-on: ubuntu-latest
+    if: github.event.repository.fork == false
     steps:
-      - name: Checkout master
-        uses: actions/checkout@v3
-      - name: Install Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - name: Install caching
-        uses: actions/cache@v4
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4
         with:
-          key: ${{ github.ref }}
+          key: mkdocs-material-${{ env.cache_id }}
           path: .cache
-      - name: Install mkdocs
-        run: pip install mkdocs-material
-      - name: Deploy documentation
-        run: mkdocs gh-deploy
+          restore-keys: |
+            mkdocs-material-
+      - run: apt-get install pngquant
+      - run: pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+      - run: mkdocs gh-deploy --force
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
