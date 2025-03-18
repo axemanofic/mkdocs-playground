@@ -11,6 +11,7 @@
   color-scheme: light;
 
   --md-primary-fg-color:               #1e1e2e;
+  /*--md-primary-fg-color:               #eff1f5;*/
   --md-primary-bg-color:               #eff1f5;
   --md-accent-fg-color:                var(--blue);
   --md-accent-bg-color:                #eff1f5;
@@ -99,3 +100,7 @@
   --md-typeset-table-color:            #cdd6f4;
   --md-typeset-table-color--light:     #181825;
 }
+
+/*.md-logo {*/
+/*  mix-blend-mode: exclusion;*/
+/*}*/
