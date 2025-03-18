@@ -26,6 +26,7 @@ exclude = ["tests", ".pre-commit-config.yml", "mkdocs.yml", "noxfile.py"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+mkdocstrings-python = "^1.16.5"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.12.0"

@@ -6,6 +6,8 @@ theme:
   custom_dir: ./docs/overrides
   logo: assets/logo.svg
   favicon: assets/logo.ico
+  icon:
+    repo: fontawesome/brands/github
   features:
     - navigation.tracking
     - navigation.top
@@ -26,8 +28,6 @@ theme:
       toggle:
         icon: material/toggle-switch-off
         name: Switch to system preference
-  icon:
-    repo: fontawesome/brands/github
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -39,14 +39,38 @@ markdown_extensions:
 plugins:
   - search
   - tags
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_root_heading: true
+            show_if_no_docstring: true
+            inherited_members: true
+            members_order: source
+            separate_signature: true
+            unwrap_annotated: true
+            filters:
+              - '!^_'
+            merge_init_into_class: true
+            docstring_section_style: spacy
+            signature_crossrefs: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            show_source: false
 extra:
   social:
     - icon: material/github
       link: https://github.com/axemanofic/mkdocs-playground
       name: Github
-    - icon: simple/pypi
+    - icon: material/language-python
       link: https://pypi.org/project/clite/
       name: PyPi
+    - icon: material/twitter
+      link: https://x.com/axemanofic
+    - icon: material/linkedin
+      link: https://www.linkedin.com/in/axemanofic/
 copyright: Copyright &copy; 2025 Roman Sotnikov
 extra_css:
   - stylesheets/extra.css
